@@ -34,6 +34,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func resetPressed(_ sender: UIButton) {
+        // Resets the game
         playerScore = 0
         computerScore = 0
         scoreLabel.text = "(P) \(playerScore) - (C) \(computerScore)"
@@ -51,10 +52,12 @@ class ViewController: UIViewController {
         playerMoveLabel.text = userMove!
         computerMoveLabel.text = moves[compMove]
         
+        // Checks if the player won
         if playerWin[userMove!] == moves[compMove] {
             resultLabel.text = "Player Wins!"
             playerScore += 1
         }
+        // Checks if the computer won
         else if computerWin[userMove!] == moves[compMove] {
             resultLabel.text = "Computer Wins!"
             computerScore += 1
@@ -63,6 +66,7 @@ class ViewController: UIViewController {
             resultLabel.text = "It's a Draw"
         }
         
+        // Updates the score
         scoreLabel.text = "(P) \(playerScore) - (C) \(computerScore)"
     }
     
